@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   ScrollView,
   View,
@@ -7,26 +7,29 @@ import {
   Linking,
   StyleSheet
 } from 'react-native';
-import { lighthouses } from '../data.service';
+import { user } from '../data.service';
+import Account from '../components/Account'
 
-const title = lighthouses[1].title;
-const content = lighthouses[1].content;
-const image = lighthouses[1].image;
-const photo = lighthouses[1].photo;
-const photoUrl = lighthouses[1].url;
+class AccountScreen extends Component {
+    render() {
+        return (
+        <ScrollView contentContainerStyle={styles.container}>
+            {this.renderAccounts()}
+        </ScrollView>
+        )
+    }
 
-const AccountScreen = () => (
-  <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.h1}>Bank Accounts</Text>
-      <Text style={styles.p}>account 1</Text>
-      <Text style={styles.p}>account 2</Text>
-      <Text style={styles.p}>account 3</Text>
-      <Text style={styles.h1}>Credit Cards</Text>
-      <Text style={styles.p}>card 1</Text>
-      <Text style={styles.p}>card 2</Text>
-      <Text style={styles.p}>card 3</Text>
-  </ScrollView>
-);
+    renderAccounts() {
+        return user.accounts.map(account => {
+            return (
+                <Account
+                    key={account.id}
+                    account={account}
+                />
+            )
+        })
+    }
+}
 
 AccountScreen.navigationOptions = ({ navigation }) => ({
   title: 'Accounts',

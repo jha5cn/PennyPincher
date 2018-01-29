@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   ScrollView,
   View,
@@ -7,22 +7,29 @@ import {
   Linking,
   StyleSheet
 } from 'react-native';
-import { lighthouses } from '../data.service';
+import { user } from '../data.service';
+import Setting from '../components/Setting'
 
-const title = lighthouses[2].title;
-const content = lighthouses[2].content;
-const image = lighthouses[2].image;
-const photo = lighthouses[2].photo;
-const photoUrl = lighthouses[2].url;
+class SettingsScreen extends Component {
+    render() {
+        return (
+            <ScrollView contentContainerStyle={styles.container}>
+                {this.renderSettings()}
+            </ScrollView>
+        )
+    }
 
-const SettingsScreen = () => (
-  <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.h1}>Settings</Text>
-      <Text style={styles.p}>setting 1</Text>
-      <Text style={styles.p}>setting 2</Text>
-      <Text style={styles.p}>setting 3</Text>
-  </ScrollView>
-);
+    renderSettings() {
+        return user.settings.map(setting => {
+            return (
+                <Setting
+                    key={setting.id}
+                    setting={setting}
+                />
+            )
+        })
+    }
+}
 
 SettingsScreen.navigationOptions = ({ navigation }) => ({
   title: 'Settings',

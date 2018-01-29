@@ -9,18 +9,28 @@ import {
   FlatList
 } from 'react-native';
 import { user } from '../data.service';
+import Goal from '../components/Goal'
 
 class GoalScreen extends Component {
   render() {
-    console.log(user.goals);
-    var goalList = user.goals.map((goal) => {
-      return <Text style={styles.p}>{goal.name}</Text>})
-    return <ScrollView contentContainerStyle={styles.container}>
-      
+    return (
+    <ScrollView contentContainerStyle={styles.container}>
+      {this.renderGoals()}
     </ScrollView>
+    )
   }
-}
 
+    renderGoals() {
+        return user.goals.map(goal => {
+            return (
+            <Goal
+                key={goal.id}
+                goal={goal}
+            />
+            )
+        })
+    }
+}
 
 /*
 <FlatList

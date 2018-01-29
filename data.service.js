@@ -51,20 +51,42 @@ export const lighthouses = [
   
   export const user = 
   {
+    id: 1,
     spendingPower: 1000.99,
     goals: [
       {
-        key: 1,
+        id: 2,
         name: "Hawaii Vacation",
         total: 500,
         remaining: 250
       },
       {
-        key: 2,
+        id: 3,
         name: "Tricycle",
         total: 777,
         remaining: 345
       }
+    ],
+    accounts: [
+        {
+            id: 4,
+            name: "Checking account one",
+            type: "Checking",
+            currentBalance: 234
+        },
+        {
+            id: 5,
+            name: "Saving account one",
+            type: "Saving",
+            currentBalance: 234
+        }
+    ],
+    settings: [
+        {
+            id: 6,
+            name: "Setting 1",
+            value: true
+        }
     ]
   };
   
