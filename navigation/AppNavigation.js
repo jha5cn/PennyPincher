@@ -26,6 +26,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SideMenu from '../components/SideMenu';
 import PopupMenu from '../components/PopupMenu';
 import AppBarLeft from '../components/AppBarLeft';
+import LoginScreen from '../screens/LoginScreen';
 
 const openOverflowMenuScreens = (e, navigation) => {
   switch (e.index) {
@@ -81,7 +82,8 @@ const setNavigationOptions = (idx) => ({
 });
 
 const stackNavRoutes = {
-  homeScreen: { screen: StackNavigator({ screen: { screen: Home }}, setNavigationOptions(0)) },
+  loginScreen: { screen: StackNavigator({ screen: { screen: LoginScreen }}, setNavigationOptions(0)) },
+  homeScreen: { screen: StackNavigator({ screen: { screen: Home }}, setNavigationOptions(1)) },
   goalScreen: { screen: StackNavigator({ screen: { screen: GoalScreen }}, setNavigationOptions(1)) },
   accountScreen: { screen: StackNavigator({ screen: { screen: AccountScreen }}, setNavigationOptions(1)) },
   settingsScreen: { screen: StackNavigator({ screen: { screen: SettingsScreen }}, setNavigationOptions(1)) },

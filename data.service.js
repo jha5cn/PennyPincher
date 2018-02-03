@@ -52,6 +52,8 @@ export const lighthouses = [
   export const user = 
   {
     id: 1,
+    email: "jahn@potassium.com",
+    name: "Jeffrey",
     spendingPower: 1000.99,
     goals: [
       {
